@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import { Server } from 'http';
 import apisRoutesLoader from './common/apisRoutesLoader';
 
@@ -10,6 +10,14 @@ export default class App {
   }
 
   public init(): void {
+
+    this.app.use(function (req: Request, res: Response, next: NextFunction) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      next();
+    });
+
     apisRoutesLoader(this.app);
   }
 
