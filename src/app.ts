@@ -17,6 +17,7 @@ export default class App {
       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
       next();
     });
+    this.app.use(`/`, (req, res) => { return res.json('Welcome to the currency exchange server'); });
 
     apisRoutesLoader(this.app);
   }
