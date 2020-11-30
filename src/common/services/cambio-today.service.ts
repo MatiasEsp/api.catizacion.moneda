@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import QuoteDTO from './quote.dto';
+import IQuote from './quote.interface';
 
 const API_KEY_CAMBIO_TODAY = '6390|46*BB_Um^rE^AoCUrtO~PO6naYKp~0Q8';
 const URL_CAMBIO_TODAY = 'https://api.cambio.today/v1';
@@ -25,12 +27,12 @@ const getTypeMoneyToApi = (money: string): string => {
   }
 }
 
-const getNumberSearchQuoteARS = async (money: string): Promise<number> => {
+const getNumberSearchQuoteTargetARS = async (money: string): Promise<number> => {
   const source: string = getTypeMoneyToApi(money);
-  const target: string = MONEY.PESO;
+  const target: string = getTypeMoneyToApi(MONEY.PESO);
   const quantity: string = '1';
   const res: any = await getQuotesCambioToday(source, target, quantity);
-  const quote: IQuote = res.data.result as IQuote;
+  const quote: QuoteDTO = res.data.result as any as IQuote;
   return quote.value;
 }
 
@@ -39,5 +41,5 @@ const getQuotesCambioToday = async (source: string, target: string, quantity: st
 }
 
 export const CambioTodayService = {
-  getNumberSearchQuoteARS
+  getNumberSearchQuoteTargetARS
 }

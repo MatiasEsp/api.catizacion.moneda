@@ -1,4 +1,4 @@
-interface IQuote {
+export default interface IQuote {
   updated: string;
   source: string;
   target: string;

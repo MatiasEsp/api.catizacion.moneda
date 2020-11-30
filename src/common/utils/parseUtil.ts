@@ -1,5 +1,5 @@
-class ParseUtil {
+export default class ParseUtil {
   static MathRound100(value: number): number {
-    return Math.round(value*100)/100;
+    return Math.round(value * 100) / 100;
   }
 }
