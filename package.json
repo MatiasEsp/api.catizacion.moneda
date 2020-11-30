@@ -2,7 +2,7 @@
   "name": "api.cotizacion.moneda",
   "version": "1.0.0",
   "description": "Cotizacion de monedas",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
     "start": "npm run build && nodemon ./dist/server.js",
     "dev": "nodemon ./src/server.ts",
