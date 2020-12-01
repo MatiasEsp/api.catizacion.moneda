@@ -31,9 +31,13 @@ const getNumberSearchQuoteTargetARS = async (money: string): Promise<number> => 
   const source: string = getTypeMoneyToApi(money);
   const target: string = getTypeMoneyToApi(MONEY.PESO);
   const quantity: string = '1';
-  const res: any = await getQuotesCambioToday(source, target, quantity);
-  const quote: QuoteDTO = res.data.result as any as IQuote;
-  return quote.value;
+  try {
+    const res: any = await getQuotesCambioToday(source, target, quantity);
+    const quote: QuoteDTO = res.data.result as any as IQuote;
+    return quote.value;
+  } catch (error) {
+    throw Error(error);
+  }
 }
 
 const getQuotesCambioToday = async (source: string, target: string, quantity: string): Promise<any> => {

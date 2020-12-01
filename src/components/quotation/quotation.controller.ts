@@ -7,7 +7,7 @@ const getQuotationDolar = async (req: Request, res: Response, next: NextFunction
     const quotationDto: QuotationDTO = await QuatationService.serviceExtractValueDolar();
     return res.json(quotationDto);
   } catch (error) {
-    return res.status(400).json({ status: 'error', msjError: '' });
+    return res.status(400).json({ status: 'error', msjError: '', error });
   }
 };
 const getQuotationEuro = async (req: Request, res: Response, next: NextFunction) => {
@@ -15,7 +15,7 @@ const getQuotationEuro = async (req: Request, res: Response, next: NextFunction)
     const quotationDto: QuotationDTO = await QuatationService.serviceExtractValueEuro();
     return res.json(quotationDto);
   } catch (error) {
-    return res.status(400).json({ status: 'error', msjError: '' });
+    return res.status(400).json({ status: 'error', msjError: '', error });
   }
 };
 const getQuotationReal = async (req: Request, res: Response, next: NextFunction) => {
@@ -23,7 +23,7 @@ const getQuotationReal = async (req: Request, res: Response, next: NextFunction)
     const quotationDto: QuotationDTO = await QuatationService.serviceExtractValueReal();
     return res.json(quotationDto);
   } catch (error) {
-    return res.status(400).json({ status: 'error', msjError: '' });
+    return res.status(400).json({ status: 'error', msjError: '', error });
   }
 };
 
