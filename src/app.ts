@@ -21,7 +21,7 @@ export default class App {
     apisRoutesLoader(this.app);
 
     this.app.use(`/`, (req: Request, res: Response, next: NextFunction) => {
-      res.json('Welcome to the currency exchange server');
+      res.json(`··· Welcome to the currency server. Endpoint Getters: '/cotizacion/dolar', '/cotizacion/euro', '/cotizacion/real' ···`);
       next();
     });
   }
